@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Category extends Model
+class Budget extends Model
 {
     use SoftDeletes;
 
@@ -13,12 +13,9 @@ class Category extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function transactions()
+
+    public function category()
     {
-        return $this->hasMany(Transaction::class);
-    }
-    public function budgets()
-    {
-        return $this->hasMany(Budget::class);
+        return $this->belongsTo(Category::class);
     }
 }
