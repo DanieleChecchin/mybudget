@@ -2,9 +2,11 @@
 
 namespace App\Livewire\Accounts;
 
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-class AccountForm extends Component
+#[Layout('layouts.app')]
+class Index extends Component
 {
     public function render()
     {
