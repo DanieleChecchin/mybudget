@@ -17,7 +17,7 @@
 
                     <div>
                         <x-input-label for="initial_balance" :value="__('Initial Balance')" />
-                        <x-text-input wire:model="initial_balance" id="initial_balance" name="initial_balance" type="number" step="0.01" class="mt-1 block w-full" />
+                        <x-text-input wire:model="initial_balance" id="initial_balance" name="initial_balance" type="number" min="0" step="0.01" class="mt-1 block w-full" />
                         <x-input-error class="mt-2" :messages="$errors->get('initial_balance')" />
                     </div>
 
