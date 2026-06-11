@@ -18,7 +18,7 @@ class Create extends Component
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
-            'initial_balance' => ['nullable', 'numeric', 'decimal:0,2', 'between:-99999999.99,99999999.99'],
+            'initial_balance' => ['nullable', 'numeric', 'min:0'],
         ]);
 
         $account = new Account;
