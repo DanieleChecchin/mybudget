@@ -39,10 +39,19 @@
                                 <td class="px-6 py-4 text-sm text-gray-500">
                                     {{ number_format((float) ($account->initial_balance ?? 0), 2) }}
                                 </td>
-                                <td class="px-6 py-4 text-right text-sm">
+                                <td class="px-6 py-4 text-right text-sm space-x-3">
                                     <a href="{{ route('accounts.edit', $account) }}" wire:navigate class="font-medium text-indigo-600 hover:text-indigo-900">
                                         {{ __('Edit') }}
                                     </a>
+
+                                    <button
+                                        type="button"
+                                        wire:click="delete({{ $account->getKey() }})"
+                                        wire:confirm="{{ __('Are you sure you want to delete this account?') }}"
+                                        class="font-medium text-red-600 hover:text-red-900"
+                                    >
+                                        {{ __('Delete') }}
+                                    </button>
                                 </td>
                             </tr>
                         @empty
