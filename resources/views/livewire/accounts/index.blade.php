@@ -25,6 +25,9 @@
                             <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
                                 {{ __('Initial Balance') }}
                             </th>
+                            <th class="px-6 py-3 text-right text-xs font-medium uppercase tracking-wider text-gray-500">
+                                {{ __('Actions') }}
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200 bg-white">
@@ -36,10 +39,15 @@
                                 <td class="px-6 py-4 text-sm text-gray-500">
                                     {{ number_format((float) ($account->initial_balance ?? 0), 2) }}
                                 </td>
+                                <td class="px-6 py-4 text-right text-sm">
+                                    <a href="{{ route('accounts.edit', $account) }}" wire:navigate class="font-medium text-indigo-600 hover:text-indigo-900">
+                                        {{ __('Edit') }}
+                                    </a>
+                                </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="2" class="px-6 py-8 text-center text-sm text-gray-500">
+                                <td colspan="3" class="px-6 py-8 text-center text-sm text-gray-500">
                                     {{ __('No accounts to display.') }}
                                 </td>
                             </tr>
